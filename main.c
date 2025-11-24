@@ -21,13 +21,19 @@ int main() {
     int num_sizes = 3;
     int num_runs = 30; 
 
-    printf("DOT PRODUCT SIMD PERFORMANCE\n");
-    printf("Scalar SIMD instructions (movss, mulss, addss)\n");
+    printf("=========================================\n");
+    printf("       DOT PRODUCT SIMD PERFORMANCE\n");
+    printf("=========================================\n");
     printf("Number of runs per test: %d\n", num_runs);
+
 
     for (int s = 0; s < num_sizes; s++) {
         int n = sizes[s];
-        printf("TEST %d: Vector size n = 2^%s (%d elements)\n", s + 1, size_labels[s], n);
+        printf("\n");
+        printf("\n");
+        printf("\n");
+        printf("----------------------------------------\n");
+        printf("Vector Size: 2^%s (%d elements)\n", size_labels[s], n);
 
         float* A = (float*)_aligned_malloc(n * sizeof(float), 16);
         float* B = (float*)_aligned_malloc(n * sizeof(float), 16);
@@ -73,27 +79,40 @@ int main() {
         float relative_error = diff / fabsf(sdot_c);
         int is_correct = (relative_error < 1e-5);
 
-        printf("C RESULTS\n");
-        printf("Result (sdot):      %20.6f \n", sdot_c);
-        printf("Average time:       %20.9f sec\n", avg_time_c);
+        printf("\n");
+        printf("=========================================\n");
+        printf("                C RESULTS\n");
+        printf("=========================================\n");
+        printf("Result (sdot): %20.6f \n", sdot_c);
+        printf("Average time: %20.9f sec\n", avg_time_c);
+        printf("\n");
         printf("\n");
 
-        printf("x86-64 ASSEMBLY RESULTS\n");
-        printf("Result (sdot):      %20.6f\n", sdot_asm);
-        printf("Average time:       %20.9f sec\n", avg_time_asm);
+        printf("=========================================\n");
+        printf("        x86-64 ASSEMBLY RESULTS\n");
+        printf("=========================================\n");
+        printf("Result (sdot): %20.6f\n", sdot_asm);
+        printf("Average time: %20.9f sec\n", avg_time_asm);
+        printf("\n");
+        printf("\n");
 
-        printf("CORRECTNESS CHECK\n");
-        printf("Absolute Diff:      %20.9f \n", diff);
-        printf("Relative Error:     %20.9f\n", relative_error);
-        printf("Correct?:             %20s \n", is_correct ? "YES" : "NO");
+        printf("=========================================\n");
+        printf("            CORRECTNESS CHECK\n");
+        printf("=========================================\n");
+        printf("Absolute Diff: %20.9f \n", diff);
+        printf("Relative Error: %20.9f\n", relative_error);
+        printf("Correctness: %20s \n", is_correct ? "CORRECT" : "INCORRECT");
+        printf("\n");
+        printf("\n");
 
-        printf("PERFORMANCE COMPARISON\n");
-        printf("Speedup (C/ASM):    %20.4fx \n", avg_time_c / avg_time_asm);
+        printf("=========================================\n");
+        printf("        PERFORMANCE COMPARISON\n");
+        printf("=========================================\n");
+        printf("Speedup (C/ASM): %20.4fx \n", avg_time_c / avg_time_asm);
         
         double perf_diff = fabs((avg_time_asm - avg_time_c) / avg_time_c * 100);
         const char* faster = (avg_time_asm < avg_time_c) ? "faster" : "slower";
         printf("Assembly is %5.2f%% %-8s than C\n", perf_diff, faster);
-        printf("END\n");
 
 
         _aligned_free(A);

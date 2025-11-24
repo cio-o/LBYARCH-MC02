@@ -1,59 +1,85 @@
 # LBYARCH-MC02
-Using C and an x86-64 assembly language, the kernel is to perform a dot product between vector A and vector B and place the result in sdot.
+Using C and an x86-64 assembly language, the kernel is to perform a dot product between vector A and vector B and place the result in sdot. 30 runs were conducted per test (20, 24, 28).
 
 
 ## PERFORMANCE RESULT
 ### DEBUG MODE
-### Vector Size 2^20
 
-| Kernel   | Average Time (s)| Result (sdot) | Correct? |
-|----------|-----------------|---------------|----------|
-| C        | 0.0318          | 2.745382      | N/A      |
-| ASM      | 0.0147          | 2.745382      | YES      |
-     
+---
 
-### Vector Size 2^24
+#### Vector Size: 2^20 (1,048,576 elements)
 
-| Kernel | Average Time (s) | Result (sdot) | Correct? |
-|--------|-----------------|---------------|----------|
-| C      | 0.4987          | 4.398148      | N/A      |
-| ASM    | 0.2305          | 4.398148      | YES      |
-         
+| Kernel | Average Time (sec) | Result (sdot)     | Correctness |
+|--------|-----------------|-----------------|------------|
+| C      | 0.006930373     | 25,637,680.000000 | CORRECT    |
+| ASM    | 0.001792093     | 25,637,680.000000 | CORRECT    |
 
-### Vector Size 2^28
+**Performance Comparison:**  
+Speedup (C/ASM): 3.8672x — Assembly is 74.14% faster than C
 
-| Kernel | Average Time (s) | Result (sdot) | Correct? |
-|--------|-----------------|---------------|----------|
-| C      | 7.9771          | 6.991018      | N/A      |
-| ASM    | 3.5198          | 6.991018      | YES      |
-      
+---
+
+#### Vector Size: 2^24 (16,777,216 elements)
+
+| Kernel | Average Time (sec) | Result (sdot)      | Correctness |
+|--------|-----------------|------------------|------------|
+| C      | 0.111622090     | 399,363,232.000000 | CORRECT    |
+| ASM    | 0.029620957     | 399,363,232.000000 | CORRECT    |
+
+**Performance Comparison:**  
+Speedup (C/ASM): 3.7683x — Assembly is 73.46% faster than C
+
+---
+
+#### Vector Size: 2^28 (268,435,456 elements)
+
+| Kernel | Average Time (sec) | Result (sdot)       | Correctness |
+|--------|-----------------|------------------|------------|
+| C      | 1.781938043     | 2,147,483,648.000000 | CORRECT    |
+| ASM    | 0.455620017     | 2,147,483,648.000000 | CORRECT    |
+
+**Performance Comparison:**  
+Speedup (C/ASM): 3.9110x — Assembly is 74.43% faster than C
+
 
 
 ### RELEASE MODE
-### Vector Size 2^20
 
-| Kernel | Average Time (s) | Result (sdot) | Correct? |
-|--------|-----------------|---------------|----------|
-| C      | 0.0132          | 2.745382      | N/A      |
-| ASM    | 0.0147          | 2.745382      | YES      |
-         
+---
 
-### Vector Size 2^24
+#### Vector Size: 2^20 (1,048,576 elements)
 
-| Kernel | Average Time (s) | Result (sdot) | Correct? |
-|--------|-----------------|---------------|----------|
-| C      | 0.2121          | 4.398148      | N/A      |
-| ASM    | 0.2305          | 4.398148      | YES      |
+| Kernel | Average Time (sec) | Result (sdot)     | Correctness |
+|--------|-----------------|-----------------|------------|
+| C      | 0.001842983     | 25,637,680.000000 | CORRECT    |
+| ASM    | 0.001846597     | 25,637,680.000000 | CORRECT    |
 
+**Performance Comparison:**  
+Speedup (C/ASM): 0.9980x — Assembly is 0.20% slower than C
 
-### Vector Size 2^28
+---
 
-| Kernel | Average Time (s) | Result (sdot) | Correct? |
-|--------|-----------------|---------------|----------|
-| C      | 3.4112          | 6.991018      | N/A      |
-| ASM    | 3.5198          | 6.991018      | YES      |          
+#### Vector Size: 2^24 (16,777,216 elements)
 
+| Kernel | Average Time (sec) | Result (sdot)      | Correctness |
+|--------|-----------------|------------------|------------|
+| C      | 0.028620280     | 399,363,232.000000 | CORRECT    |
+| ASM    | 0.028777810     | 399,363,232.000000 | CORRECT    |
+
+**Performance Comparison:**  
+Speedup (C/ASM): 0.9945x — Assembly is 0.55% slower than C
+
+---
+
+#### Vector Size: 2^28 (268,435,456 elements)
+
+| Kernel | Average Time (sec) | Result (sdot)       | Correctness |
+|--------|-----------------|------------------|------------|
+| C      | 0.457456323     | 2,147,483,648.000000 | CORRECT    |
+| ASM    | 0.472546600     | 2,147,483,648.000000 | CORRECT    |
+
+**Performance Comparison:**  
+Speedup (C/ASM): 0.9681x — Assembly is 3.30% slower than C
 
 
 ## ANALYSIS
-For debug mode, ASM is faster than C for large vectors (24, 28) showing that it has a performance advantage over C while in release mode, C slightly outpermorms asm for both the small and large vectors. For correctness, all tests produced identical results regardless of the size. Overall, ASM seems to do better in debug builds while C performs better in relase mode.
