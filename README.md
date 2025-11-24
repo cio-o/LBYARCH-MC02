@@ -3,12 +3,15 @@
 ## PERFORMANCE RESULT
 ### DEBUG MODE
 ### Vector Size 2^20
-        Average Time (s)    Result (sdot)   Correct?
-C       0.0318              2.745382        N/A                   
-ASM     0.0147              2.745382        YES               
 
+| Kernel   | Average Time (s)| Result (sdot) | Correct? |
+|----------|-----------------|---------------|----------|
+| C        | 0.0318          | 2.745382      | N/A      |
+| ASM      | 0.0147          | 2.745382      | YES      |
+     
 
 ### Vector Size 2^24
+
         Average Time (s)    Result (sdot)   Correct?
 C       0.4987              4.398148        N/A              
 ASM     0.2305              4.398148        YES              
