@@ -12,35 +12,45 @@
 
 ### Vector Size 2^24
 
-        Average Time (s)    Result (sdot)   Correct?
-C       0.4987              4.398148        N/A              
-ASM     0.2305              4.398148        YES              
-
+| Kernel | Average Time (s) | Result (sdot) | Correct? |
+|--------|-----------------|---------------|----------|
+| C      | 0.4987          | 4.398148      | N/A      |
+| ASM    | 0.2305          | 4.398148      | YES      |
+         
 
 ### Vector Size 2^28
-        Average Time (s)    Result (sdot)   Correct?
-C       7.9771              6.991018        N/A              
-ASM     3.5198              6.991018        YES              
 
+| Kernel | Average Time (s) | Result (sdot) | Correct? |
+|--------|-----------------|---------------|----------|
+| C      | 7.9771          | 6.991018      | N/A      |
+| ASM    | 3.5198          | 6.991018      | YES      |
+      
 
 
 ### RELEASE MODE
 ### Vector Size 2^20
-        Average Time (s)    Result (sdot)   Correct?
-C       0.0132              2.745382        N/A              
-ASM     0.0147              2.745382        YES              
 
+| Kernel | Average Time (s) | Result (sdot) | Correct? |
+|--------|-----------------|---------------|----------|
+| C      | 0.0132          | 2.745382      | N/A      |
+| ASM    | 0.0147          | 2.745382      | YES      |
+         
 
 ### Vector Size 2^24
-        Average Time (s)    Result (sdot)   Correct?
-C       0.2121              4.398148        N/A              
-ASM     0.2305              4.398148        YES              
+
+| Kernel | Average Time (s) | Result (sdot) | Correct? |
+|--------|-----------------|---------------|----------|
+| C      | 0.2121          | 4.398148      | N/A      |
+| ASM    | 0.2305          | 4.398148      | YES      |
 
 
 ### Vector Size 2^28
-        Average Time (s)    Result (sdot)   Correct?
-C       3.4112              6.991018        N/A              
-ASM     3.5198              6.991018        YES              
+
+| Kernel | Average Time (s) | Result (sdot) | Correct? |
+|--------|-----------------|---------------|----------|
+| C      | 3.4112          | 6.991018      | N/A      |
+| ASM    | 3.5198          | 6.991018      | YES      |          
+
 
 
 ## ANALYSIS
