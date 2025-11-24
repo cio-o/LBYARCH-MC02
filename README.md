@@ -5,7 +5,6 @@ Using C and an x86-64 assembly language, the kernel is to perform a dot product 
 ## PERFORMANCE RESULT
 ### DEBUG MODE
 
----
 
 #### Vector Size: 2^20 (1,048,576 elements)
 
@@ -17,7 +16,6 @@ Using C and an x86-64 assembly language, the kernel is to perform a dot product 
 **Performance Comparison:**  
 Speedup (C/ASM): 3.8672x — Assembly is 74.14% faster than C
 
----
 
 #### Vector Size: 2^24 (16,777,216 elements)
 
@@ -29,7 +27,6 @@ Speedup (C/ASM): 3.8672x — Assembly is 74.14% faster than C
 **Performance Comparison:**  
 Speedup (C/ASM): 3.7683x — Assembly is 73.46% faster than C
 
----
 
 #### Vector Size: 2^28 (268,435,456 elements)
 
@@ -45,7 +42,6 @@ Speedup (C/ASM): 3.9110x — Assembly is 74.43% faster than C
 
 ### RELEASE MODE
 
----
 
 #### Vector Size: 2^20 (1,048,576 elements)
 
@@ -57,7 +53,6 @@ Speedup (C/ASM): 3.9110x — Assembly is 74.43% faster than C
 **Performance Comparison:**  
 Speedup (C/ASM): 0.9980x — Assembly is 0.20% slower than C
 
----
 
 #### Vector Size: 2^24 (16,777,216 elements)
 
@@ -69,7 +64,6 @@ Speedup (C/ASM): 0.9980x — Assembly is 0.20% slower than C
 **Performance Comparison:**  
 Speedup (C/ASM): 0.9945x — Assembly is 0.55% slower than C
 
----
 
 #### Vector Size: 2^28 (268,435,456 elements)
 
@@ -83,3 +77,4 @@ Speedup (C/ASM): 0.9681x — Assembly is 3.30% slower than C
 
 
 ## ANALYSIS
+In the debug mode, assembly showed significant speedups regardless of the vector sizes. They were around 3.8-3.9x faster than C in the tests conducted. The SIMD implementation shows optimization for the dot product computation especially for large vectors. In release mode, assembly performs slightly slower or closer with C with differences under 3.5%. The optimization disappears which makes SIMD less impactful. Speedup is more apparent in debug mode where compiler optimizations are minimal. No differences in results were present throughout the tests.
