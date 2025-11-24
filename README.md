@@ -1,10 +1,44 @@
 # LBYARCH-MC02
- i.) comparative execution time and short analysis of the performance of the kernels
-
-ii.) Take a screenshot of the program output with the correctness check (C).
-
-iii.) Take a screenshot of the program output, including the correctness check (x86-64).
-
-iv.) short videos (5-10mins) showing your source code, compilation, and execution of the C and x86-64 program
 
 ## PERFORMANCE RESULT
+### DEBUG MODE
+### Vector Size 2^20
+        Average Time (s)    Result (sdot)   Correct?
+C       0.0318              2.745382        N/A                   
+ASM     0.0147              2.745382        YES               
+
+
+### Vector Size 2^24
+        Average Time (s)    Result (sdot)   Correct?
+C       0.4987              4.398148        N/A              
+ASM     0.2305              4.398148        YES              
+
+
+### Vector Size 2^28
+        Average Time (s)    Result (sdot)   Correct?
+C       7.9771              6.991018        N/A              
+ASM     3.5198              6.991018        YES              
+
+
+
+### RELEASE MODE
+### Vector Size 2^20
+        Average Time (s)    Result (sdot)   Correct?
+C       0.0132              2.745382        N/A              
+ASM     0.0147              2.745382        YES              
+
+
+### Vector Size 2^24
+        Average Time (s)    Result (sdot)   Correct?
+C       0.2121              4.398148        N/A              
+ASM     0.2305              4.398148        YES              
+
+
+### Vector Size 2^28
+        Average Time (s)    Result (sdot)   Correct?
+C       3.4112              6.991018        N/A              
+ASM     3.5198              6.991018        YES              
+
+
+## ANALYSIS
+For debug mode, ASM is faster than C for large vectors (24, 28) showing that it has a performance advantage over C while in release mode, C slightly outpermorms asm for both the small and large vectors. For correctness, all tests produced identical results regardless of the size. Overall, ASM seems to do better in debug builds while C performs better in relase mode.
