@@ -1,4 +1,6 @@
 # LBYARCH-MC02
+Using C and an x86-64 assembly language, the kernel is to perform a dot product between vector A and vector B and place the result in sdot.
+
 
 ## PERFORMANCE RESULT
 ### DEBUG MODE
