@@ -131,3 +131,15 @@ float dotproduct_c(float* A, float* B, int n) {
     
     return sdot;
 }
+
+
+
+
+// nasm -f win64 dotproduct.asm -o dotproduct.obj -g
+// cl /Zi main.c dotproduct.obj /Fe:dotprod_debug.exe
+// dotprod_debug.exe
+
+
+// nasm -f win64 dotproduct.asm -o dotproduct.obj
+// cl /O2 main.c dotproduct.obj /Fe:dotprod_release.exe
+// dotprod_release.exe 
