@@ -3,6 +3,7 @@
 #include <time.h>
 #include <math.h>
 #include <windows.h>
+#include <malloc.h>
 
 float dotproduct_c(float* A, float* B, int n);
 extern float dotproduct_asm(float* A, float* B, int n);
